@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - ne1ne2
+name: Build and deploy WAR app to Azure Web App - ne1ne2
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@master
@@ -28,5 +28,5 @@ jobs:
       with:
         app-name: 'ne1ne2'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_49328e5a54d941a0af0dcd274ae91713 }}
-        package: '${{ github.workspace }}/target/*.jar'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_452a50cf946f48b5a5108c26a8ef58dd }}
+        package: '${{ github.workspace }}/target/*.war'
