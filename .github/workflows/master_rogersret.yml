@@ -29,4 +29,4 @@ jobs:
         app-name: 'rogersret'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_648f69c5278243ef8e09c27d367433b0 }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '${{ github.workspace }}/target/*.war'
