@@ -4,10 +4,9 @@
 name: Build and deploy WAR app to Azure Web App - ne1ne2
 
 on:
-  push:
-    branches:
-      - master
+  deployment:
 
+  
 jobs:
   build-and-deploy:
     runs-on: windows-latest
@@ -21,12 +20,6 @@ jobs:
         java-version: '8'
 
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn clean
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v1
-      with:
-        app-name: 'ne1ne2'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_452a50cf946f48b5a5108c26a8ef58dd }}
-        package: '${{ github.workspace }}/target/*.war'
+    
