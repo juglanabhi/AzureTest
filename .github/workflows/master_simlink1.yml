@@ -4,9 +4,7 @@
 name: Build and deploy WAR app to Azure Web App - simlink1
 
 on:
-  push:
-    branches:
-      - master
+  deployment
 
 jobs:
   build-and-deploy:
@@ -21,12 +19,4 @@ jobs:
         java-version: '8'
 
     - name: Build with Maven
-      run: mvn clean install
-
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v1
-      with:
-        app-name: 'simlink1'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1b662d913be442f28bfbcdd58cb03bc9 }}
-        package: '${{ github.workspace }}/target/*.war'
+      run: mvn clean 
